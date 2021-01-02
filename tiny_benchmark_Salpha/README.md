@@ -60,64 +60,6 @@ python setup.py build develop
 ```
 
 
-### normal issuse
-
-> A runtime bug: undefined symbol: _ZN3c105ErrorC1ENS_14SourceLocationERKSs
-
-```bash
-    from maskrcnn_benchmark.layers import nms as _box_nms  File "/home/data/github/tiny_benchmark/tiny_benchmark/maskrcnn_benchmark/layers/__init__.py", line 9, in <module>
-
-  File "/home/data/github/tiny_benchmark/tiny_benchmark/maskrcnn_benchmark/layers/__init__.py", line 9, in <module>
-    from .nms import nms
-  File "/home/data/github/tiny_benchmark/tiny_benchmark/maskrcnn_benchmark/layers/nms.py", line 3, in <module>
-    from .nms import nms
-  File "/home/data/github/tiny_benchmark/tiny_benchmark/maskrcnn_benchmark/layers/nms.py", line 3, in <module>
-    from maskrcnn_benchmark import _C
-ImportError:     /home/data/github/tiny_benchmark/tiny_benchmark/maskrcnn_benchmark/_C.cpython-37m-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC1ENS_14SourceLocationERKSsfrom maskrcnn_benchmark import _C
-
-ImportError: /home/data/github/tiny_benchmark/tiny_benchmark/maskrcnn_benchmark/_C.cpython-37m-x86_64-linux-gnu.so: undefined symbol: _ZN3c105ErrorC1ENS_14SourceLocationERKSs
-```
-
-
-- solution:
-
-change the code in $YOU_CONDA_ENV_DIR/lib/python3.6/site-packages/torch/utils/cpp_extension.py as follows:
-
-```py
--D_GLIBCXX_USE_CXX11_ABI=0
-=>
--D_GLIBCXX_USE_CXX11_ABI=1
-```
-
-
-which are in line 398 and line 1013
-
-```py
-self._add_compile_flag(extension, '-D_GLIBCXX_USE_CXX11_ABI=0')
-...
-common_cflags += ['-D_GLIBCXX_USE_CXX11_ABI=0']
-=>
-self._add_compile_flag(extension, '-D_GLIBCXX_USE_CXX11_ABI=1')
-...
-common_cflags += ['-D_GLIBCXX_USE_CXX11_ABI=1']
-```
-
-
-and then delete ‘build’ and ‘re-build’
-
-```sh
-rm build -rf
-python setup.py build develop
-```
-
-
-- possible reason:
-
-The gcc flag should keep the same, while build pytorch and it's extension.
-The possible cause is previous pytorch version use -D_GLIBCXX_USE_CXX11_ABI=0 to build in conda,
-therefore it's ok to build nms extension using -D_GLIBCXX_USE_CXX11_ABI=0, however the new version 
-build with -D_GLIBCXX_USE_CXX11_ABI=1, resulting in this bug.
-
 # Getting started <a name='2.'/>
 1. install TinyBenchamrk [Install]()
 2. download dataset [dataset](../dataset) and move to \\\${TinyBenchmark}/dataset,
@@ -152,12 +94,6 @@ export NGPUS=2
 CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.launch --nproc_per_node=$NGPUS --master_port=9001 tools/train_test_net.py --config ${config_path}
 ```
 
-~~Notice: the test annotation will not be released until RLQ-TOD@ECCV'20 challenge finished, you may need to change DATASETS.TEST in config file for training, such as:~~
-~~```yaml~~
-~~DATASETS:~~
-~~  TRAIN: ("tiny_set_corner_sw640_sh512_erase_with_uncertain_train_all_coco",)~~
-~~  TEST: ("tiny_set_corner_sw640_sh512_erase_with_uncertain_train_all_coco",)~~
-~~```~~
 
 # Evaluation <a name='3.'/>
 
