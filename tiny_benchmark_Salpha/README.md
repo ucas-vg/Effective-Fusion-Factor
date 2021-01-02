@@ -117,7 +117,7 @@ Moreover your_result.json should satisfy such format
 
 # Experiment <a name='4.'/>
 
-<a color='#00ff00'>  Each group of experiments was run at least 3 times, and the final experimental result was the average of multiple results.</a>
+<a color='#00ff00'>  Here are some experimental results. Each group of experiments was run at least 3 times, and the final experimental result was the average of multiple results.</a>
 
 For details of experiment setting, please see [paper](http://https://arxiv.org/pdf/2011.02298.pdf) Section 4.1. Experiments Setting
 
