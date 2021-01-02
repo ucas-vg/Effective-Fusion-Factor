@@ -117,9 +117,9 @@ Moreover your_result.json should satisfy such format
 
 # Experiment <a name='4.'/>
 
-<a color='#00ff00'> Notice: in following tables, **updated evaluation code (compared with the WACV paper) was adopted**. Since orginal code for wacv paper handles the ignore region not well, we have updated the evaluation code and obtained some new experimental results. Although the modification for evaluation, the relevant conclusions are consistent. Each group of experiments was run at least 3 times, and the final experimental result was the average of multiple results.</a>
+<a color='#00ff00'>  Each group of experiments was run at least 3 times, and the final experimental result was the average of multiple results.</a>
 
-For details of experiment setting, please see [paper](http://openaccess.thecvf.com/content_WACV_2020/papers/Yu_Scale_Match_for_Tiny_Person_Detection_WACV_2020_paper.pdf) Section 5.1. Experiments Setting
+For details of experiment setting, please see [paper](http://https://arxiv.org/pdf/2011.02298.pdf) Section 4.1. Experiments Setting
 
 training setting| value
 ---|---
@@ -133,21 +133,23 @@ size of cut image piece| (640, 512)
 
 detector | $AP^{tiny}_{50}$ | $AP^{tiny1}_{50}$ | $AP^{tiny2}_{50}$ |  $AP^{tiny3}_{50}$ | $AP^{small}_{50}$| $AP^{tiny}_{25}$| $AP^{tiny}_{75}$
 ---|---|---|---|---|---|---|---
-[FCOS](configs/TinyPerson/fcos/baseline1/fcos_R_50_FPN_1x_baseline1.yaml) 						| 0.99 | 2.82 | 6.2 | 3.26 | 20.19 | 13.28 | 0.14
-[RetinaNet](configs/TinyPerson/retina/baseline1/retina_R_50_FPN_1x_baseline1_lr.yaml)			| 12.24 | 38.79 | 47.38 | 33.53 | 48.26 | 61.51 | 2.28
-[Adaptive RetinaNet](configs/TinyPerson/retina/baseline1/retina_R_50_FPN_1x_baseline1_lrfpn.yaml)                              | 27.08 | 52.63 | 57.88 | 46.56 | 59.97 | 69.6 | 4.49
-[Adaptive FreeAnchor](configs/TinyPerson/freeanchor/baseline1/freeanchor_R_50_FPN_1x_baseline1_lrfpn.yaml) | 25.13 | 47.41 | 52.77 | 41.41 | 59.61 | 63.38 | 4.58
-[Faster RCNN-FPN](configs/TinyPerson/FPN/baseline1/e2e_faster_rcnn_R_50_FPN_1x_cocostyle_baseline1.yaml)       | 30.25|51.58|58.95|**47.35**|63.18|68.43|5.83
-[Adaptive RetinaNet with S-α]                              | 48.34 | 28.61 | 54.69 | 59.38 | 61.73 | 71.18 | 5.34
-Faster RCNN-FPN with S-α                             | 48.39 | 31.68 | 52.20 | 60.01 | 65.15 | 69.32 | 5.78
+[FCOS](configs/TinyPerson/fcos/baseline1/fcos_R_50_FPN_1x_baseline1.yaml) 						| 3.26 | 0.99 | 2.82 | 6.2 | 20.19 | 13.28 | 0.14
+[RetinaNet](configs/TinyPerson/retina/baseline1/retina_R_50_FPN_1x_baseline1_lr.yaml)			| 33.53 | 12.24 | 38.79 | 47.38  | 48.26 | 61.51 | 2.28
+[Adaptive RetinaNet](configs/TinyPerson/retina/baseline1/retina_R_50_FPN_1x_baseline1_lrfpn.yaml)                              |46.56 | 27.08 | 52.63 | 57.88 |  59.97 | 69.6 | 4.49
+[Adaptive FreeAnchor](configs/TinyPerson/freeanchor/baseline1/freeanchor_R_50_FPN_1x_baseline1_lrfpn.yaml) | 41.41 | 25.13 | 47.41 | 52.77  | 59.61 | 63.38 | 4.58
+[Faster RCNN-FPN](configs/TinyPerson/FPN/baseline1/e2e_faster_rcnn_R_50_FPN_1x_cocostyle_baseline1.yaml)       |47.35| 30.25|51.58|58.95|63.18|68.43|5.83
+[Adaptive RetinaNet with S-α](configs/TinyPerson/retina/S_alpha/retina_R_50_FPN_1x_baseline1_lrfpn_sa.yaml)                              | 48.34 | 28.61 | 54.69 | 59.38 | 61.73 | 71.18 | 5.34
+[Faster RCNN-FPN with S-α](configs/TinyPerson/FPN/S_alpha/e2e_faster_rcnn_R_50_FPN_1x_cocostyle_baseline1_sa.yaml)                             | 48.39 | 31.68 | 52.20 | 60.01 | 65.15 | 69.32 | 5.78
 
-detector | $MR^{tiny1}_{50}$ | $MR^{tiny2}_{50}$ |  $MR^{tiny3}_{50}$ | $MR^{tiny}_{50}$ | $MR^{small}_{50}$ | $MR^{tiny}_{25}$ | $MR^{tiny}_{75}$
+detector | $MR^{tiny}_{50}$ | $MR^{tiny1}_{50}$ | $MR^{tiny2}_{50}$ |  $MR^{tiny3}_{50}$  | $MR^{small}_{50}$ | $MR^{tiny}_{25}$ | $MR^{tiny}_{75}$
 ---|---|---|---|---|---|---|---
-[FCOS](configs/TinyPerson/fcos/baseline1/fcos_R_50_FPN_1x_baseline1.yaml) 					  | 99.96 | 99.77 | 97.68 | 99.0 | 95.49 | 97.24 | 99.89
-[RetinaNet](configs/TinyPerson/retina/baseline1/retina_R_50_FPN_1x_baseline1_lr.yaml)			     | 94.52 | 88.24 | 86.52 | 92.66 | 82.84 | 81.95 | 99.13
-[Adaptive RetinaNet](configs/TinyPerson/retina/baseline1/retina_R_50_FPN_1x_baseline1_lrfpn.yaml)    |  89.65 | 81.03 | 81.08 | 88.31 | 74.05 | 76.33 | 98.76
-[Adaptive FreeAnchor](configs/TinyPerson/freeanchor/baseline1/freeanchor_R_50_FPN_1x_baseline1_lrfpn.yaml) | 88.93 | **80.75** | 83.63 | 89.63 | 74.38 | 78.21 | 98.77
-[Faster RCNN-FPN](configs/TinyPerson/FPN/baseline1/e2e_faster_rcnn_R_50_FPN_1x_cocostyle_baseline1.yaml)    | 87.86|82.02|78.78|**87.57**|72.56|76.59|98.39 
+[FCOS](configs/TinyPerson/fcos/baseline1/fcos_R_50_FPN_1x_baseline1.yaml) 					  | 99.0| 99.96 | 99.77 | 97.68  | 95.49 | 97.24 | 99.89
+[RetinaNet](configs/TinyPerson/retina/baseline1/retina_R_50_FPN_1x_baseline1_lr.yaml)			     | 92.66 | 94.52 | 88.24 | 86.52  | 82.84 | 81.95 | 99.13
+[Adaptive RetinaNet](configs/TinyPerson/retina/baseline1/retina_R_50_FPN_1x_baseline1_lrfpn.yaml)    | 88.31 |  89.65 | 81.03 | 81.08  | 74.05 | 76.33 | 98.76
+[Adaptive FreeAnchor](configs/TinyPerson/freeanchor/baseline1/freeanchor_R_50_FPN_1x_baseline1_lrfpn.yaml) | 89.63 | 88.93 | 80.75 | 83.63  | 74.38 | 78.21 | 98.77
+[Faster RCNN-FPN](configs/TinyPerson/FPN/baseline1/e2e_faster_rcnn_R_50_FPN_1x_cocostyle_baseline1.yaml)    |87.57 | 87.86|82.02|78.78|72.56|76.59|98.39 
+[Adaptive RetinaNet with S-α](configs/TinyPerson/retina/S_alpha/retina_R_50_FPN_1x_baseline1_lrfpn_sa.yaml)   | 87.73 | 89.51 | 81.11 | 79.49 | 72.82 | 74.85 | 98.57
+[Faster RCNN-FPN with S-α](configs/TinyPerson/FPN/S_alpha/e2e_faster_rcnn_R_50_FPN_1x_cocostyle_baseline1_sa.yaml) | 87.29 | 87.69 | 81.76 | 78.57 | 70.75 | 76.58 | 98.42
 
         
 
