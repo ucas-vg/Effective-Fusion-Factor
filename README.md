@@ -1,5 +1,5 @@
 # Effective Fusion Factor
-Effective Fusion Factor in FPN for Tiny Object Detection(WACV2021)[paper](https://arxiv.org/pdf/2011.02298.pdf)
+Effective Fusion Factor in FPN for Tiny Object Detection(WACV2021) [paper](https://arxiv.org/pdf/2011.02298.pdf)
 ![](figure//framework.png)
 
 ## Tiny Benchmark S-α
