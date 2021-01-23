@@ -1,0 +1,18 @@
+ Average Miss Rate  (MR) @ tiny1              [ IoU=0.25      | height= [2:8] | visibility=[0.65:10000000000.00] ] = 82.41%
+ Average Miss Rate  (MR) @ tiny1              [ IoU=0.50      | height= [2:8] | visibility=[0.65:10000000000.00] ] = 89.27%
+ Average Miss Rate  (MR) @ tiny1              [ IoU=0.75      | height= [2:8] | visibility=[0.65:10000000000.00] ] = 98.73%
+ Average Miss Rate  (MR) @ tiny2              [ IoU=0.25      | height=[8:12] | visibility=[0.65:10000000000.00] ] = 69.63%
+ Average Miss Rate  (MR) @ tiny2              [ IoU=0.50      | height=[8:12] | visibility=[0.65:10000000000.00] ] = 81.33%
+ Average Miss Rate  (MR) @ tiny2              [ IoU=0.75      | height=[8:12] | visibility=[0.65:10000000000.00] ] = 97.05%
+ Average Miss Rate  (MR) @ tiny3              [ IoU=0.25      | height=[12:20] | visibility=[0.65:10000000000.00] ] = 64.45%
+ Average Miss Rate  (MR) @ tiny3              [ IoU=0.50      | height=[12:20] | visibility=[0.65:10000000000.00] ] = 80.44%
+ Average Miss Rate  (MR) @ tiny3              [ IoU=0.75      | height=[12:20] | visibility=[0.65:10000000000.00] ] = 96.71%
+ Average Miss Rate  (MR) @ tiny               [ IoU=0.25      | height=[2:20] | visibility=[0.65:10000000000.00] ] = 76.18%
+ Average Miss Rate  (MR) @ tiny               [ IoU=0.50      | height=[2:20] | visibility=[0.65:10000000000.00] ] = 88.21%
+ Average Miss Rate  (MR) @ tiny               [ IoU=0.75      | height=[2:20] | visibility=[0.65:10000000000.00] ] = 98.57%
+ Average Miss Rate  (MR) @ small              [ IoU=0.25      | height=[20:32] | visibility=[0.65:10000000000.00] ] = 53.23%
+ Average Miss Rate  (MR) @ small              [ IoU=0.50      | height=[20:32] | visibility=[0.65:10000000000.00] ] = 72.06%
+ Average Miss Rate  (MR) @ small              [ IoU=0.75      | height=[20:32] | visibility=[0.65:10000000000.00] ] = 94.05%
+ Average Miss Rate  (MR) @ All                [ IoU=0.25      | height=[-1:10000000000] | visibility=[0.65:10000000000.00] ] = 77.89%
+ Average Miss Rate  (MR) @ All                [ IoU=0.50      | height=[-1:10000000000] | visibility=[0.65:10000000000.00] ] = 90.27%
+ Average Miss Rate  (MR) @ All                [ IoU=0.75      | height=[-1:10000000000] | visibility=[0.65:10000000000.00] ] = 98.82%
